@@ -1,0 +1,846 @@
+{
+	"info": {
+		"_postman_id": "8df6e2b5-f91f-42fa-8a46-b17d9125644a",
+		"name": "Score App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /usuarios",
+			"item": [
+				{
+					"name": "1 - Criar usuário (201)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teste\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Gerar Token (200)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teste\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Criar usuário (400)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Gerar Token Senha inválida (403)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teste\",\r\n    \"password\": \"abc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST /pessoas",
+			"item": [
+				{
+					"name": "1 - Cadastrar Pessoa (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulano de Tal\",\r\n    \"telefone\": \"99 99999-9999\",\r\n    \"idade\": 99,\r\n    \"cidade\": \"Cidade de Fulano\",\r\n    \"estado\": \"SP\",\r\n    \"score\": 350,\r\n    \"regiao\": \"sudeste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Cadastrar Outra Pessoa (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Siclano de Tal\",\r\n    \"telefone\": \"99 99999-9999\",\r\n    \"idade\": 99,\r\n    \"cidade\": \"Cidade de Ciclano\",\r\n    \"estado\": \"SP\",\r\n    \"score\": 700,\r\n    \"regiao\": \"sul\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Cadastrar Pessoa (400)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1MTkwNn0.FCc0p0mge54SqCoJAJJRCQmxRH5r-PTIiFAq9p6Q3qcvJCr2oFWH6E5uLjnKztKNevCiUyW1BOHmSCHPDq2wCA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Cadastrar Pessoa (403)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1MTkwNn0.FCc0p0mge54SqCoJAJJRCQmxRH5r-PTIiFAq9p6Q3qcvJCr2oFWH6E5uLjnKztKNevCiUyW1BOHmSCHPDq2wCA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulano de Tal\",\r\n    \"telefone\": \"99 99999-9999\",\r\n    \"idade\": 99,\r\n    \"cidade\": \"Cidade de Fulano\",\r\n    \"estado\": \"SP\",\r\n    \"score\": 350,\r\n    \"regiao\": \"sudeste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST /afinidades",
+			"item": [
+				{
+					"name": "1 - Cadastrar Afinidade (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"regiao\": \"sudeste\",\r\n    \"estados\": [\r\n        \"SP\",\r\n        \"RJ\",\r\n        \"MG\",\r\n        \"ES\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/afinidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"afinidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Cadastrar Outra Afinidade (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"regiao\": \"sul\",\r\n    \"estados\": [\r\n        \"PR\",\r\n        \"SC\",\r\n        \"RS\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/afinidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"afinidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Cadastrar Afinidade (400)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3NjY3ODQ4Nn0.YrpxA6FD32fTR2GIDRODGhMAw1HlN-DkfGeQRNN5e5fJcxF-2Hk8yAjgHp-AcOMJ3KvwhxuwpGpJ2rdSjXqZeA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/afinidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"afinidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Cadastrar Afinidade (403)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1MTkwNn0.FCc0p0mge54SqCoJAJJRCQmxRH5r-PTIiFAq9p6Q3qcvJCr2oFWH6E5uLjnKztKNevCiUyW1BOHmSCHPDq2wCA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"regiao\": \"sudeste\",\r\n    \"estados\": [\r\n        \"SP\",\r\n        \"RJ\",\r\n        \"MG\",\r\n        \"ES\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/afinidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"afinidades"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST /scores",
+			"item": [
+				{
+					"name": "1 - Cadastrar Score Insuficiente (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scoreDescricao\": \"Insuficiente\",\r\n    \"inicial\": 0,\r\n    \"final\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Cadastrar Score Inaceitável (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scoreDescricao\": \"Inaceitável\",\r\n    \"inicial\": 201,\r\n    \"final\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Cadastrar Score Aceitável (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scoreDescricao\": \"Aceitável\",\r\n    \"inicial\": 501,\r\n    \"final\": 700\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Cadastrar Score Recomendável (201)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scoreDescricao\": \"Recomendável\",\r\n    \"inicial\": 701,\r\n    \"final\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Cadastrar Score Insuficiente (400)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3NjY3ODQ4Nn0.YrpxA6FD32fTR2GIDRODGhMAw1HlN-DkfGeQRNN5e5fJcxF-2Hk8yAjgHp-AcOMJ3KvwhxuwpGpJ2rdSjXqZeA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6 - Cadastrar Score (403)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3NjY3ODQ4Nn0.YrpxA6FD32fTR2GIDRODGhMAw1HlN-DkfGeQRNN5e5fJcxF-2Hk8yAjgHp-AcOMJ3KvwhxuwpGpJ2rdSjXqZeA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scoreDescricao\": \"Insuficiente\",\r\n    \"inicial\": 0,\r\n    \"final\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/scores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET /pessoas",
+			"item": [
+				{
+					"name": "1 - Get Pessoa por Id (200)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Get Pessoa por Id (204)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas/9999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Get Pessoa por Id (403)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3NjY3ODQ4Nn0.YrpxA6FD32fTR2GIDRODGhMAw1HlN-DkfGeQRNN5e5fJcxF-2Hk8yAjgHp-AcOMJ3KvwhxuwpGpJ2rdSjXqZeA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Get Pessoas (201)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1NjIyNX0.zuEtOfDcfZVMoY7CVWRJ__SThwti4nakBEBvg0w5aj7H9hkYJah0zIvPP8kyLHQ52A5wCaP2hUlH80y3UxWKWA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Get Pessoas (403)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0ZSIsImV4cCI6MTY3Njc1MzkzMH0.VDQL8SH6Ed6oKTUp2spJs8wf8Mzt3cF_Z80iVahPcHXZG3LSRuCXmNnW0FuP3w9I-YDjvushQfiIVpcgGQmHjA",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/score/v1/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"score",
+								"v1",
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
